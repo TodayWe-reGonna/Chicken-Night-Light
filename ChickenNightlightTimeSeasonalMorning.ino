@@ -19,7 +19,6 @@ void setup() {
   dimmer.setState(ON);
 }
 
-
 void loop() {
 
   RTC.read(tm);
@@ -34,9 +33,9 @@ void loop() {
   /*
     Sept thru April = on at 7am off at 9am on at 4pm dim at 10pm off at 11pm
     May thru August = on at 4pm dim at 10pm off at 11pm
-
   */
-    
+
+ // September thru April   
   if (tm.Month >= 9 || tm.Month < 5) {
     if (tm.Hour == 7 || tm.Hour == 8)
     {
@@ -55,7 +54,7 @@ void loop() {
     }
   }
 
-  
+// May thru August
   if (tm.Hour >= 19 && tm.Hour <= 21)
   {
   
