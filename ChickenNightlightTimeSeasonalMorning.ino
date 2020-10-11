@@ -22,7 +22,7 @@ void setup() {
 void loop() {
 
   RTC.read(tm);
-  dimmer.setState(ON);
+  
   /* Serial.print(tm.Hour);  //Print commands commented out unless connected to serial to debug
     Serial.print("-");
     Serial.print(tm.Minute);
@@ -39,7 +39,7 @@ void loop() {
   if (tm.Month >= 9 || tm.Month < 5) {
     if (tm.Hour == 7 || tm.Hour == 8)
     {
-      
+      dimmer.setState(ON);
       dimmer.setPower(75);
     }
 
@@ -47,17 +47,19 @@ void loop() {
     {
       dimmer.setState(OFF);
     }
+    if(tm.Month>10 || tm.Month<3){
     if (tm.Hour >= 16 && tm.Hour <19)
     {
-  
+  dimmer.setState(ON);
       dimmer.setPower(94);
+    }
     }
   }
 
 // May thru August
   if (tm.Hour >= 19 && tm.Hour <= 21)
   {
-  
+  dimmer.setState(ON);
     dimmer.setPower(94);
   }
 
