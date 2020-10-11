@@ -48,18 +48,24 @@ void loop() {
       dimmer.setState(OFF);
     }
     if(tm.Month>10 || tm.Month<3){
-    if (tm.Hour >= 16 && tm.Hour <19)
+      if (tm.Hour >= 16 && tm.Hour <18)
+      {
+        dimmer.setState(ON);
+        dimmer.setPower(94);
+      }
+    }
+    if (tm.Hour >= 18 && tm.Hour <19)
     {
-  dimmer.setState(ON);
+      dimmer.setState(ON);
       dimmer.setPower(94);
     }
-    }
   }
+
 
 // May thru August
   if (tm.Hour >= 19 && tm.Hour <= 21)
   {
-  dimmer.setState(ON);
+    dimmer.setState(ON);
     dimmer.setPower(94);
   }
 
